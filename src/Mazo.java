@@ -4,11 +4,15 @@ import java.util.Random;
 
 public class Mazo {
     private Carta mazo[];
+    private Carta cartasSalidas[];
+    private int contadorSalidas;
     private static String[] opcionesPalo = {"Picas", "Oros", "Diamantes", "Bastos"};
     private static Random rnd = new Random();
 
     public Mazo() {
         this.mazo = new Carta[40]; //Creamos un array de tipo Carta con 40 huecos para cartas
+        this.cartasSalidas = new Carta[40];
+        rellenarMazo();
     }
 
     public void rellenarMazo() {
@@ -26,7 +30,7 @@ public class Mazo {
     }
 
 
-    public void barajar(){
+    private void barajar(){
     Carta auxiliar; 
     int random = 0;
         for(int i = 0; i < mazo.length; i++){
@@ -35,6 +39,19 @@ public class Mazo {
             mazo[random] = mazo[i];
             mazo[i] = auxiliar;
         }
+
+    }
+
+    public Carta siguienteCarta(){
+        if(contadorSalidas >= mazo.length){
+            System.out.println("No quedan cartas");
+            return null;
+        }
+
+        Carta siguienteCarta = mazo[contadorSalidas]; //Guardamos la carta
+        this.cartasSalidas[contadorSalidas] = siguienteCarta;
+        this.contadorSalidas++;
+        return siguienteCarta;
 
     }
 
