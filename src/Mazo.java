@@ -15,7 +15,7 @@ public class Mazo {
         rellenarMazo();
     }
 
-    public void rellenarMazo() {
+    private void rellenarMazo() {
         int i = 0;
         for (String p : opcionesPalo) {
             for (int z = 1; z < 11; z++) {
@@ -30,7 +30,7 @@ public class Mazo {
     }
 
 
-    private void barajar(){
+    public void barajar(){
     Carta auxiliar; 
     int random = 0;
         for(int i = 0; i < mazo.length; i++){
