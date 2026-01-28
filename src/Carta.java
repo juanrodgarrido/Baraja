@@ -20,11 +20,8 @@ public class Carta {
         return numero;
     }
 
-
-
-
     @Override
     public String toString() {
-        return "Número: "+this.numero+"\n"+"Palo: "+this.palo;
+        return "Num: "+this.numero+" - Palo: "+this.palo;
     }
 }
