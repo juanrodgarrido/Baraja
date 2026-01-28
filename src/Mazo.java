@@ -48,8 +48,9 @@ public class Mazo {
             return null;
         }
 
-        Carta siguienteCarta = mazo[contadorSalidas];
-        contadorSalidas++;
+        Carta siguienteCarta = mazo[contadorSalidas]; //Guardamos la carta
+        this.cartasSalidas[contadorSalidas] = siguienteCarta;
+        this.contadorSalidas++;
         return siguienteCarta;
 
     }
