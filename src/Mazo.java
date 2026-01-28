@@ -9,11 +9,9 @@ public class Mazo {
 
     public Mazo() {
         this.mazo = new Carta[40]; //Creamos un array de tipo Carta con 40 huecos para cartas
-        rellenarMazo();
-
     }
 
-    private void rellenarMazo() {
+    public void rellenarMazo() {
         int i = 0;
         for (String p : opcionesPalo) {
             for (int z = 1; z < 11; z++) {
