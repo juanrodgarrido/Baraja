@@ -28,7 +28,15 @@ public class Mazo {
     }
 
 
-    public void barajar(){        
+    public void barajar(){
+    Carta auxiliar; 
+    int random = 0;
+        for(int i = 0; i < mazo.length; i++){
+            random = rnd.nextInt(40);
+            auxiliar = mazo[random];
+            mazo[random] = mazo[i];
+            mazo[i] = auxiliar;
+        }
 
     }
 
