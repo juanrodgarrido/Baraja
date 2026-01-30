@@ -11,8 +11,8 @@ public class Mazo {
     private static Random rnd = new Random();
 
     public Mazo() {
-        this.mazo = new ArrayList<>();
-        this.mazoSalido = new ArrayList<>();
+        this.mazo = new ArrayList<>(40); //Le doy una capacidad inicial para que Java no tenga que redimensionar 40 veces (rendimiento)
+        this.mazoSalido = new ArrayList<>(40);
         rellenarMazo();
     }
 
@@ -36,13 +36,17 @@ public class Mazo {
     public void barajar() {
         Carta auxiliar; //aqui guardaremos la carta que cambiaremos
         int random = 0;
-        for (int i = 0; i < mazo.size(); i++) {
-            random = rnd.nextInt(mazo.size());
-            auxiliar = mazo.get(random);
-            mazo.set(random, mazo.get(i));
-            mazo.set(i, auxiliar);
+        if (mazo.size() <= 1) {
+            System.out.println("No quedan suficientes cartas para barajar");
+        } else {
+            for (int i = 0; i < mazo.size(); i++) {
+                random = rnd.nextInt(mazo.size());
+                auxiliar = mazo.get(random);
+                mazo.set(random, mazo.get(i));
+                mazo.set(i, auxiliar);
+            }
+            System.out.println("El mazo ha sido barajado \n");
         }
-        System.out.println("El mazo ha sido barajado \n");
     }
 
     public String siguienteCarta() {
